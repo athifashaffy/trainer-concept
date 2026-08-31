@@ -93,34 +93,57 @@
 
 <main>
   <header>
-    <p class="eyebrow">Concept &middot; not a product</p>
-    <h1>A pelvic floor trainer, in COGITO's design language</h1>
+    <p class="eyebrow">Prototype &middot; not a product</p>
+    <h1>A pelvic floor trainer you can feel</h1>
   </header>
 
-  <p class="lede">Forty-eight seconds of a working screen. It is a sketch built to
-  answer one question — what a timed-exercise product would look like if it were
-  built the way COGITO is built — and nothing in it has been clinically reviewed.</p>
+  <p class="lede">Fifty seconds of a real Flutter app, recorded off an Android
+  phone. Not a mockup — it runs, and the phone buzzes along with the circle.
+  Nothing in it has been clinically reviewed.</p>
 
   <figure>
     <video src="demo.mp4" controls loop muted playsinline
-           aria-label="Demo of the pelvic floor trainer screen"></video>
-    <figcaption>One exercise and the handover into the next. Sound off — there is none yet.</figcaption>
+           aria-label="Screen recording of the pelvic floor trainer"></video>
+    <figcaption>One exercise and the handover into the next, on a Samsung A16.</figcaption>
   </figure>
 
   <section>
-    <h2>What you are looking at</h2>
+    <h2>The part the video cannot show</h2>
     <div class="card">
-      <p>The ring is something to squeeze along with, not a countdown. A thin
-      outline <strong>swells into a thick disc over about a second</strong>, holds
-      while you hold, then settles back as you let go. That timing is measured
-      off the reference app rather than guessed — roughly a second to contract,
-      three to hold, a second to release, three to rest. Colour carries the
-      instruction before the words do: <strong>orange to contract, blue to
-      release, sand to get ready</strong>.</p>
-      <p>The palette, the typeface, the 24-pixel borderless cards and the pill
-      controls are COGITO's own tokens, unchanged. There is no red anywhere,
-      for the same reason there is none in COGITO: a contraction cue must not
-      read as an alarm.</p>
+      <p>Steffen's note was the whole specification: <em>&ldquo;you press the
+      muscle that prevents peeing. The fuller the circle the greater the haptic
+      pulse.&rdquo;</em> So the circle and the buzz are driven from one number —
+      not two, because two would drift apart and then what you feel would stop
+      matching what you see.</p>
+      <p><strong>Empty circle, silent phone. Full squeeze, and the motor is
+      running just over half the time.</strong> In between it scales smoothly:</p>
+      <table>
+        <tr><th>Circle</th><th>Buzz</th><th>Gap</th><th>Motor running</th></tr>
+        <tr><td class="was">a tenth full</td><td>14 ms</td><td>274 ms</td><td>5%</td></tr>
+        <tr><td class="was">half full</td><td>29 ms</td><td>172 ms</td><td>14%</td></tr>
+        <tr><td class="was">full squeeze</td><td>48 ms</td><td>45 ms</td><td>52%</td></tr>
+      </table>
+      <p>Measured on the phone, not assumed: sampling Android's own vibrator
+      state 900 times across a full loop shows the motor idle through every
+      release and rest, and running 60&ndash;73% of the time at full squeeze.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The circle</h2>
+    <div class="card">
+      <p>Something to squeeze along with rather than a countdown. A ring
+      <strong>swells into a thick disc over about a second</strong>, holds while
+      you hold, then settles back as you let go. Those timings are measured off
+      the reference app rather than guessed — about a second to contract, three
+      to hold, a second to release, three to rest.</p>
+      <p>Colour carries the instruction before the words do: <strong>green to
+      squeeze, blue to let go, amber to get ready</strong>. All three are set to
+      within a stop of the same contrast against the unfilled ring, so no state
+      shouts and none disappears — the first version had the release at less
+      than half the weight of the squeeze, and letting go read as the screen
+      going blank rather than as half the exercise. No red anywhere: a
+      contraction cue must not read as an alarm.</p>
     </div>
   </section>
 
@@ -165,9 +188,10 @@
       </div>
       <div class="q">
         <b>Should it wear COGITO's identity at all?</b>
-        <span>Using the design system made this quick to build and easy to read.
-        It also means anyone who sees it associates UKE with the subject. That
-        may be exactly right, or exactly wrong.</span>
+        <span>This one deliberately does not — different palette, its own
+        codebase, nothing borrowed. Anything that looks like COGITO ties UKE to
+        the subject, and that may be exactly right or exactly wrong. Easy to
+        change either way while it is still a prototype.</span>
       </div>
     </div>
   </section>
@@ -178,8 +202,9 @@
     existing commercial app, used as a reference for what the category does.
     None of it is ours and none of it is UKE-authored. Only the design,
     the layout and the pacing of the ring are new here.</p>
-    <p><strong>This is a prototype screen, not a programme.</strong> No clinician
-    has reviewed the exercises, the durations or the wording.</p>
+    <p><strong>This is a prototype, not a programme.</strong> No clinician has
+    reviewed the exercises, the durations or the wording. It is one exercise and
+    the handover into the next, looping — not a session anyone should follow.</p>
   </div>
 
   <footer>Built 31 August 2026. Shared for discussion — please do not
